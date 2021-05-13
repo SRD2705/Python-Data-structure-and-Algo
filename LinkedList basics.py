@@ -34,6 +34,17 @@ class Linkedlist:
             tmp = tmp.next
             c += 1
 
+    def get_ptr_node(self,k):
+        tmp = self.head
+        cnt = 0
+        while tmp:
+            if cnt == k-1:
+                return tmp
+            else:
+                cnt += 1
+                tmp = tmp.next
+
+
 
     def ins_bng(self, data):
         node = Node(data, self.head)
@@ -93,6 +104,40 @@ class Linkedlist:
                 return
             tmp = tmp.next
 
+    def reverse(self):
+        if self.head is None:
+            print("linked list is empty")
+            return
+        last = None
+        tmp = self.head
+        while tmp:
+            next_node = tmp.next
+            tmp.next = last
+            last = tmp
+            tmp = next_node
+        self.head = last
+
+    def reverse_first_k_node(self,k):
+        if self.lngth() < k or k < 0 or self.head is None:
+            print("Not Possible")
+            return
+        else:
+            last = self.get_ptr_node(k)
+            # last = None
+            first = self.head
+            tmp = self.head
+            cnt = 0
+            while cnt != k+1:
+                next_node = tmp.next
+                tmp.next = last
+                last = tmp
+                tmp = next_node
+                cnt += 1
+            first.next = tmp
+            self.head = last
+
+
+
     def print(self):
         if self.head is None:
             print("List is empty: ")
@@ -107,7 +152,8 @@ class Linkedlist:
 if __name__ == '__main__':
     li = Linkedlist()
     li.ins_val([12,23,45,11,13,5])
-    li.remove_by_val(23)
+    # li.remove_by_val(23)
+    li.reverse_first_k_node(3)
     li.print()
 
 

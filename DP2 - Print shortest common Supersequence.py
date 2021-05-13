@@ -25,7 +25,7 @@ for i in range(1,n+1):
             dp[i][j] = 1 + dp[i-1][j-1]
         else:
             dp[i][j] = max(dp[i][j-1],dp[i-1][j])
-# print(dp[n][m])
+print(dp[n][m])
 # print((n+m - dp[n][m]))
 
 i = n
