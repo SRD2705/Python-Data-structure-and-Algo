@@ -3,7 +3,6 @@
 In this problem we are given two string and print the count of longest substring
 difference between substring and subsequence is subsequence can be discrete but
 substring must be contagious.
-
 So the basic change is when the character does not match we set the counter to zero
 and return the max value in the dp table.
 '''

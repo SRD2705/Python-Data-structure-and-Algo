@@ -1,13 +1,22 @@
-from itertools import product
-n = int(input())
-mod=1000000000+7
-x = int(input())
-d = int(input())
-li = list(range(1,n+1,1))
-tmp = []
+li = list(map(int, input().split()))
 res = 0
-for i in product(1,repeat=2):
-    if li[0]^li[1] <= x and (li[0]+li[i])%d == 0:
-        res += 1
-
-print(res%mod)
+st = 0
+tmp = 0
+for i in range(len(li)):
+    if li[i] % 2 == 0:
+        if st == False or st == 0:
+            tmp += 1
+            st = True
+            res = max(res, tmp)
+        else:
+            tmp = 1
+            st = True
+    else:
+        if st == True or st == 0:
+            st = False
+            tmp += 1
+            res = max(res,tmp)
+        else:
+            tmp = 1
+            st = False
+print(res)

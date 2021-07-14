@@ -1,46 +1,23 @@
-prime = [0] * 100001
-k = [0] * 100001
+data = [0]*7
+data[0],data[1],data[2],data[4] = map(int,input("Enter the data: "))
+data[6] = data[0]^data[2]^data[4]
+data[5] = data[0]^data[1]^data[4]
+data[3] = data[0]^data[1]^data[2]
 
-def Sieve():
-    for i in range(1, 100001):
-        k[i] = i
+print("Encoded bits are: ",*data)
 
-    for i in range(2, 100001):
+rec = list(map(int, input("Enter the received data: ")))
+p1 = rec[6]^rec[4]^rec[2]^rec[0]
+p2 = rec[5]^rec[4]^rec[1]^rec[0]
+p3 = rec[3]^rec[2]^rec[1]^rec[0]
 
-        # If i is prime then remove all
-        # factors of prime from it
-        if (prime[i] == 0):
-            for j in range(i, 100001, i):
-
-                prime[j] = 1
-
-                while (k[j] % (i * i) == 0):
-                    k[j] /= (i * i)
-
-def countPairs(arr, n):
-    freq = dict()
-
-    for i in range(n):
-        if k[arr[i]] in freq.keys():
-            freq[k[arr[i]]] += 1
-        else:
-            freq[k[arr[i]]] = 1
-
-    Sum = 0
-    for i in freq:
-        Sum += (freq[i] * (freq[i] - 1)) / 2
-
-    return Sum
-
-
-arr = [8,2]
-
-# Length of arr
-n = len(arr)
-
-# To pre-compute the value of k
-Sieve()
-
-# Function that return total count 
-# of pairs with perfect square product 
-print(int(countPairs(arr, n)))
+c = p3*4+p2*2+p1
+if c==0:
+    print("No error found")
+else:
+    print("error on the position: ",c)
+    if rec[7-c] == 0:
+        rec[7-c] = 1
+    else:
+        rec[7-c] = 0
+    print("Correct data is: ",*rec)
