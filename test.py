@@ -1,20 +1,16 @@
-n = int(input("Enter a number: "))
+from heapq import heapify,heappush,heappop
+li=[5,15,10,20,8,25,18]
+k = 3
+heap = []
+heapify(heap)
+for i in range(k):
+    heappush(heap,li[i])
 
+for i in range(k,len(li)):
+    if heap[0] > li[i]:
+        continue
+    else:
+        heappop(heap)
+        heappush(heap,li[i])
 
-def sqrt_number(n):
-    high = n
-    low = 1
-    res = 0
-    while high >= low:
-        mid = (high + low) // 2
-        if mid * mid > n:
-            high = mid - 1
-        elif mid * mid < n:
-            low = mid + 1
-            res = mid
-        elif mid * mid == n:
-            return mid
-
-    return res
-
-print(sqrt_number(n))
+print(heap)

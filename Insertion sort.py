@@ -1,5 +1,5 @@
 #Insertion Sort
-
+# Stable algo
 li = list(map(int, input().split()))
 n = len(li)
 for i in range(1, n):
