@@ -18,10 +18,10 @@ we pass the array and s1 as the parameter and gives the answer
 def count_subset_sum(li,k):
     n = len(li)
     dp = [[0 for i in range(k+1)] for j in range(n+1)]
-    for i in range(k+1):
-        dp[0][i] = False
-    for j in range(n+1):
-        dp[j][0] = True
+    for i in range(k + 1):
+        dp[0][i] = 0
+    for j in range(n + 1):
+        dp[j][0] = 1
     for i in range(1,n+1):
         for j in range(1,k+1):
             if j >= li[i-1]:

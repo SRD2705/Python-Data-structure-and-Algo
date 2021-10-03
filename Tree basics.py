@@ -336,6 +336,15 @@ def lca(root, n1, n2):
         return lca2
 
 
+def mirror(root):
+    if root:
+        mirror(root.left)
+        mirror(root.right)
+        root.left, root.right = root.right, root.left
+    else:
+        return
+
+
 if __name__ == '__main__':
     root = bintree(1)
     root.left = bintree(2)

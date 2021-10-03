@@ -10,7 +10,7 @@ But in Unbounded knapsack we if we take an element once then we can again take i
 when we do not consider an element we never came back to that element again.
 we came back to element if it takes previously either we do not consider it again.
 
-the main code change from 0-1 knapsack is ver slide.
+the main code change from 0-1 knapsack is very slight.
 the change is in 0-1 knapsack if we take the element then we move on to next element
 so we do... dp[i][j] = max((val[i-1] + dp[i-1][j-wt[i-1]]), dp[i-1][j])  in 0-1 knapsack
 but in unbounded we consider the element again so we write..

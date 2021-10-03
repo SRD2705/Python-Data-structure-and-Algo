@@ -46,9 +46,3 @@ with Listener(on_press=on_press,on_release = on_release) as listener:
     print("Total keyboard pressed: ",count)
     print("Total mouse clicked: ",mcount)
 
-'''
-the total  fund is 1k crore
-the name is biot 
-shs is the finding
-
-'''

@@ -18,7 +18,7 @@ import sys
 def subsetsumpos(li,s):
     n = len(li)
     dp = [[0 for i in range(s+1)] for j in range(n+1)]
-    res = []
+    res = 0
     for i in range(s+1):
         dp[0][i] = False
     for i in range(n+1):
@@ -29,15 +29,12 @@ def subsetsumpos(li,s):
                 dp[i][j] = dp[i-1][j] or dp[i-1][j-li[i-1]]
             else:
                 dp[i][j] = dp[i-1][j]
-    for i in range(s+1):
+    for i in range(s//2,-1,-1):
         if dp[n][i] == True:        # Traversing the last row to get the possible numbers
-            res.append(i)
+            res = s - (2*i)
     return res
 
 li = list(map(int, input().split()))
 s = sum(li)
 res = subsetsumpos(li,s)
-ans = sys.maxsize
-for i in range(len(res)):
-    ans = min(ans,abs(s-(2*res[i])))    # Getting the minimum subset difference
-print(ans)
+print(res)
