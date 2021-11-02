@@ -1,7 +1,7 @@
 import json
 import requests
 def send():
-    headers = {"Authorization": "Bearer ya29.a0ARrdaM-5BoQBW7P-DQ_LtF_gTsYfimUVZyOvtti1k1on-GGopUmaq-0xKg9unahT8Rk_e4TPaTd_tTi5iZBjjm459BRVH9Am-TnME2UjovuLl-2tBOSXKHgTo9llWglzTXN0P9gaVRAFlq04s2Ckx-PTkwNv"}
+    headers = {"Authorization": "TOKEN"}
     para = {
         "name": "test.txt",
     }
